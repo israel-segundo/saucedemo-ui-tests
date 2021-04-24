@@ -1,0 +1,334 @@
+PS REDACTED\SauceDemoUITests> mvn test -DtargetBrowser=edge
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< groupId:SauceDemoUITests >----------------------
+[INFO] Building SauceDemoUITests 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ SauceDemoUITests ---
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 0 resource
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ SauceDemoUITests ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ SauceDemoUITests ---
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 4 resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ SauceDemoUITests ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ SauceDemoUITests ---
+[INFO] Surefire report directory: REDACTED\SauceDemoUITests\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running TestRunner
+
+Scenario: Login with a valid user              # src/test/resources/SauceDemo.feature:5
+Apr 24, 2021 5:51:58 PM saucedemo.config.SauceDemoConfigReader <init>
+INFO: Configuration loaded from production.properties: {saucedemo.web.url=https://www.saucedemo.com/, saucedemo.valid.user.name=standard_user, firefox.geckodriver.path=drivers/geckodriver.exe, chrome.chromedriver.path=drivers/chromedriver.exe, edge.driver.path=drivers/msedgedriver.exe, saucedemo.invalid.user.pwd=never_gonna_let_you_down, default.wait.time.in.seconds=10, saucedemo.invalid.user.name=never_gonna_give_you_up, saucedemo.valid.user.pwd=secret_sauce}
+Apr 24, 2021 5:51:58 PM saucedemo.utils.SharedWebDriver <clinit>
+INFO: Target Browser Specified: edge
+Starting MSEdgeDriver 90.0.818.46 (32aa22d4a337c9235ee6cdfb02b6a98778d26c1f) on port 16971
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping MSEdgeDriver safe.
+MSEdgeDriver was started successfully.
+Apr 24, 2021 5:51:59 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+Apr 24, 2021 5:51:59 PM saucedemo.pom.LoginPage goTo
+INFO: Navigating to https://www.saucedemo.com/
+Apr 24, 2021 5:52:02 PM saucedemo.pom.LoginPage waitUntilPageIsLoaded
+INFO: LoginPage finished loading
+  Given I am on the SauceDemo login page       # steps.SauceDemoStepDefs.i_am_on_the_saucedemo_login_page()
+Apr 24, 2021 5:52:02 PM saucedemo.pom.LoginPage login
+INFO: Entering credentials:  [User=standard_user, Password=*****]
+Apr 24, 2021 5:52:02 PM saucedemo.pom.LoginPage login
+INFO: Submitting credentials...
+  Given I authenticate using valid credentials # steps.SauceDemoStepDefs.i_authenticate_using_valid_credentials()
+Apr 24, 2021 5:52:02 PM saucedemo.pom.InventoryPage waitUntilPageIsLoaded
+INFO: Waiting for InventoryPage to load...
+Apr 24, 2021 5:52:02 PM saucedemo.pom.InventoryPage waitUntilPageIsLoaded
+INFO: InventoryPage finished loading.
+  Then I can see the inventory page            # steps.SauceDemoStepDefs.i_can_see_the_inventory_page()
+
+Scenario: Login with an invalid user                                                                            # src/test/resources/SauceDemo.feature:9
+Apr 24, 2021 5:52:02 PM saucedemo.pom.LoginPage goTo
+INFO: Navigating to https://www.saucedemo.com/
+Apr 24, 2021 5:52:02 PM saucedemo.pom.LoginPage waitUntilPageIsLoaded
+INFO: LoginPage finished loading
+  Given I am on the SauceDemo login page                                                                        # steps.SauceDemoStepDefs.i_am_on_the_saucedemo_login_page()
+Apr 24, 2021 5:52:02 PM saucedemo.pom.LoginPage login
+INFO: Entering credentials:  [User=never_gonna_give_you_up, Password=*****]
+Apr 24, 2021 5:52:03 PM saucedemo.pom.LoginPage login
+INFO: Submitting credentials...
+  Given I authenticate using invalid credentials                                                                # steps.SauceDemoStepDefs.i_authenticate_using_invalid_credentials()
+Apr 24, 2021 5:52:03 PM steps.SauceDemoStepDefs i_should_see_an_error_saying
+INFO: Error message obtained: Epic sadface: Username and password do not match any user in this service
+  Then I should see an error saying "Epic sadface: Username and password do not match any user in this service" # steps.SauceDemoStepDefs.i_should_see_an_error_saying(java.lang.String)
+
+Scenario: Logout from the home page                # src/test/resources/SauceDemo.feature:13
+Apr 24, 2021 5:52:03 PM saucedemo.pom.LoginPage goTo
+INFO: Navigating to https://www.saucedemo.com/
+Apr 24, 2021 5:52:03 PM saucedemo.pom.LoginPage waitUntilPageIsLoaded
+INFO: LoginPage finished loading
+  Given I am on the SauceDemo login page           # steps.SauceDemoStepDefs.i_am_on_the_saucedemo_login_page()
+Apr 24, 2021 5:52:03 PM saucedemo.pom.LoginPage login
+INFO: Entering credentials:  [User=standard_user, Password=*****]
+Apr 24, 2021 5:52:03 PM saucedemo.pom.LoginPage login
+INFO: Submitting credentials...
+  Given I authenticate using valid credentials     # steps.SauceDemoStepDefs.i_authenticate_using_valid_credentials()
+Apr 24, 2021 5:52:03 PM saucedemo.pom.InventoryPage waitUntilPageIsLoaded
+INFO: Waiting for InventoryPage to load...
+Apr 24, 2021 5:52:03 PM saucedemo.pom.InventoryPage waitUntilPageIsLoaded
+INFO: InventoryPage finished loading.
+  Then I can see the inventory page                # steps.SauceDemoStepDefs.i_can_see_the_inventory_page()
+Apr 24, 2021 5:52:03 PM saucedemo.pom.BurgerMenuComponent logout
+INFO: Clicking on the burger menu...
+Apr 24, 2021 5:52:03 PM saucedemo.pom.BurgerMenuComponent logout
+INFO: Waiting for the logout button to appear...
+Apr 24, 2021 5:52:04 PM saucedemo.pom.BurgerMenuComponent logout
+INFO: Clicking on the logout link...
+  Given I logout from the site                     # steps.SauceDemoStepDefs.i_logout_from_the_site()
+Apr 24, 2021 5:52:04 PM saucedemo.pom.LoginPage waitUntilPageIsLoaded
+INFO: LoginPage finished loading
+  Then I am redirected to the SauceDemo login page # steps.SauceDemoStepDefs.i_am_redirected_to_the_saucedemo_login_page()
+
+Scenario: Sort products by Price (low to high)                                           # src/test/resources/SauceDemo.feature:19
+Apr 24, 2021 5:52:04 PM saucedemo.pom.LoginPage goTo
+INFO: Navigating to https://www.saucedemo.com/
+Apr 24, 2021 5:52:05 PM saucedemo.pom.LoginPage waitUntilPageIsLoaded
+INFO: LoginPage finished loading
+  Given I am on the SauceDemo login page                                                 # steps.SauceDemoStepDefs.i_am_on_the_saucedemo_login_page()
+Apr 24, 2021 5:52:05 PM saucedemo.pom.LoginPage login
+INFO: Entering credentials:  [User=standard_user, Password=*****]
+Apr 24, 2021 5:52:05 PM saucedemo.pom.LoginPage login
+INFO: Submitting credentials...
+  Given I authenticate using valid credentials                                           # steps.SauceDemoStepDefs.i_authenticate_using_valid_credentials()
+Apr 24, 2021 5:52:05 PM saucedemo.pom.InventoryPage waitUntilPageIsLoaded
+INFO: Waiting for InventoryPage to load...
+Apr 24, 2021 5:52:05 PM saucedemo.pom.InventoryPage waitUntilPageIsLoaded
+INFO: InventoryPage finished loading.
+  Then I can see the inventory page                                                      # steps.SauceDemoStepDefs.i_can_see_the_inventory_page()
+Apr 24, 2021 5:52:05 PM saucedemo.pom.InventoryPage sortProductsByCriteria
+INFO: Clicking on the sort dropdown...
+Apr 24, 2021 5:52:05 PM saucedemo.pom.InventoryPage sortProductsByCriteria
+INFO: Attempting to select criteria: Price (low to high) on the dropdown
+  Given I sort the products using criteria "Price (low to high)" using the sort dropdown # steps.SauceDemoStepDefs.i_sort_the_products_using_dropdown(java.lang.String)
+Apr 24, 2021 5:52:06 PM steps.SauceDemoStepDefs the_products_are_sorted_by_price_low_to_high
+INFO: List of products obtained: [{name=Sauce Labs Onesie, description=Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel., price=7.990000}, {name=Sauce Labs Bike Light, description=A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included., price=9.990000}, {name=Sauce Labs Bolt T-Shirt, description=Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt., price=15.990000}, {name=Test.allTheThings() T-Shirt (Red), description=This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton., price=15.990000}, {name=Sauce Labs Backpack, description=carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection., price=29.990000}, {name=Sauce Labs Fleece Jacket, description=It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office., price=49.990000}]
+Apr 24, 2021 5:52:06 PM steps.SauceDemoStepDefs the_products_are_sorted_by_price_low_to_high
+INFO: List of prices obtained: [7.99, 9.99, 15.99, 15.99, 29.99, 49.99]
+  Then The products are sorted by price (low to high)                                    # steps.SauceDemoStepDefs.the_products_are_sorted_by_price_low_to_high()
+
+Scenario: Add multiple items to the shopping cart                   # src/test/resources/SauceDemo.feature:25
+Apr 24, 2021 5:52:06 PM saucedemo.pom.LoginPage goTo
+INFO: Navigating to https://www.saucedemo.com/
+Apr 24, 2021 5:52:06 PM saucedemo.pom.LoginPage waitUntilPageIsLoaded
+INFO: LoginPage finished loading
+  Given I am on the SauceDemo login page                            # steps.SauceDemoStepDefs.i_am_on_the_saucedemo_login_page()
+Apr 24, 2021 5:52:06 PM saucedemo.pom.LoginPage login
+INFO: Entering credentials:  [User=standard_user, Password=*****]
+Apr 24, 2021 5:52:06 PM saucedemo.pom.LoginPage login
+INFO: Submitting credentials...
+  Given I authenticate using valid credentials                      # steps.SauceDemoStepDefs.i_authenticate_using_valid_credentials()
+Apr 24, 2021 5:52:06 PM saucedemo.pom.InventoryPage waitUntilPageIsLoaded
+INFO: Waiting for InventoryPage to load...
+Apr 24, 2021 5:52:06 PM saucedemo.pom.InventoryPage waitUntilPageIsLoaded
+INFO: InventoryPage finished loading.
+  Then I can see the inventory page                                 # steps.SauceDemoStepDefs.i_can_see_the_inventory_page()
+Apr 24, 2021 5:52:06 PM steps.SauceDemoStepDefs i_add_x_products_to_the_shopping_cart
+INFO: List of products obtained: [{name=Sauce Labs Backpack, description=carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection., price=29.990000}, {name=Sauce Labs Bike Light, description=A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included., price=9.990000}, {name=Sauce Labs Bolt T-Shirt, description=Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt., price=15.990000}, {name=Sauce Labs Fleece Jacket, description=It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office., price=49.990000}, {name=Sauce Labs Onesie, description=Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel., price=7.990000}, {name=Test.allTheThings() T-Shirt (Red), description=This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton., price=15.990000}]
+Apr 24, 2021 5:52:06 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Searching product Sauce Labs Backpack on the inventory list...
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Found product Sauce Labs Backpack on inventory list. Attempting to add it to cart.
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Product Sauce Labs Backpack was added to the cart.
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Searching product Sauce Labs Bike Light on the inventory list...
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Found product Sauce Labs Bike Light on inventory list. Attempting to add it to cart.
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Product Sauce Labs Bike Light was added to the cart.
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Searching product Sauce Labs Bolt T-Shirt on the inventory list...
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Found product Sauce Labs Bolt T-Shirt on inventory list. Attempting to add it to cart.
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Product Sauce Labs Bolt T-Shirt was added to the cart.
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Searching product Sauce Labs Fleece Jacket on the inventory list...
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Found product Sauce Labs Fleece Jacket on inventory list. Attempting to add it to cart.
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Product Sauce Labs Fleece Jacket was added to the cart.
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Searching product Sauce Labs Onesie on the inventory list...
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Found product Sauce Labs Onesie on inventory list. Attempting to add it to cart.
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Product Sauce Labs Onesie was added to the cart.
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Searching product Test.allTheThings() T-Shirt (Red) on the inventory list...
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Found product Test.allTheThings() T-Shirt (Red) on inventory list. Attempting to add it to cart.
+Apr 24, 2021 5:52:07 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Product Test.allTheThings() T-Shirt (Red) was added to the cart.
+  Given I add 3 products to the shopping cart                       # steps.SauceDemoStepDefs.i_add_x_products_to_the_shopping_cart(int)
+Apr 24, 2021 5:52:07 PM saucedemo.pom.ShoppingCartComponent goToShoppingCart
+INFO: Clicking on the shopping cart button...
+Apr 24, 2021 5:52:07 PM saucedemo.pom.ShoppingCartPage waitUntilPageIsLoaded
+INFO: Waiting for ShoppingCartPage to load...
+Apr 24, 2021 5:52:07 PM saucedemo.pom.ShoppingCartPage waitUntilPageIsLoaded
+INFO: ShoppingCartPage finished loading.
+  And I navigate to the shopping cart page                          # steps.SauceDemoStepDefs.i_navigate_to_the_shopping_cart_page()
+Apr 24, 2021 5:52:07 PM steps.SauceDemoStepDefs the_same_x_products_should_be_on_the_shopping_cart
+INFO: Verifying that the following products are on cart: [{name=Sauce Labs Backpack, description=carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection., price=29.990000}, {name=Sauce Labs Bike Light, description=A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included., price=9.990000}, {name=Sauce Labs Bolt T-Shirt, description=Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt., price=15.990000}, {name=Sauce Labs Fleece Jacket, description=It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office., price=49.990000}, {name=Sauce Labs Onesie, description=Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel., price=7.990000}, {name=Test.allTheThings() T-Shirt (Red), description=This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton., price=15.990000}]
+Apr 24, 2021 5:52:08 PM steps.SauceDemoStepDefs the_same_x_products_should_be_on_the_shopping_cart
+INFO: Products on cart: [{name=Sauce Labs Backpack, description=carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection., price=29.990000}, {name=Sauce Labs Bike Light, description=A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included., price=9.990000}, {name=Sauce Labs Bolt T-Shirt, description=Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt., price=15.990000}, {name=Sauce Labs Fleece Jacket, description=It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office., price=49.990000}, {name=Sauce Labs Onesie, description=Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel., price=7.990000}, {name=Test.allTheThings() T-Shirt (Red), description=This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton., price=15.990000}]
+Apr 24, 2021 5:52:08 PM steps.SauceDemoStepDefs the_same_x_products_should_be_on_the_shopping_cart
+INFO: Product {name=Sauce Labs Backpack, description=carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection., price=29.990000} appears to be on cart
+Apr 24, 2021 5:52:08 PM steps.SauceDemoStepDefs the_same_x_products_should_be_on_the_shopping_cart
+INFO: Product {name=Sauce Labs Bike Light, description=A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included., price=9.990000} appears to be on cart
+Apr 24, 2021 5:52:08 PM steps.SauceDemoStepDefs the_same_x_products_should_be_on_the_shopping_cart
+INFO: Product {name=Sauce Labs Bolt T-Shirt, description=Get your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt., price=15.990000} appears to be on cart
+Apr 24, 2021 5:52:08 PM steps.SauceDemoStepDefs the_same_x_products_should_be_on_the_shopping_cart
+INFO: Product {name=Sauce Labs Fleece Jacket, description=It's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office., price=49.990000} appears to be on cart
+Apr 24, 2021 5:52:08 PM steps.SauceDemoStepDefs the_same_x_products_should_be_on_the_shopping_cart
+INFO: Product {name=Sauce Labs Onesie, description=Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel., price=7.990000} appears to be on cart
+Apr 24, 2021 5:52:08 PM steps.SauceDemoStepDefs the_same_x_products_should_be_on_the_shopping_cart
+INFO: Product {name=Test.allTheThings() T-Shirt (Red), description=This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton., price=15.990000} appears to be on cart
+Apr 24, 2021 5:52:08 PM steps.SauceDemoStepDefs the_same_x_products_should_be_on_the_shopping_cart
+INFO: All expected products are on cart.
+  Then the products previously added should be on the shopping cart # steps.SauceDemoStepDefs.the_same_x_products_should_be_on_the_shopping_cart()
+Apr 24, 2021 5:52:08 PM saucedemo.pom.BurgerMenuComponent resetAppState
+INFO: Clicking on the burger menu...
+Apr 24, 2021 5:52:08 PM saucedemo.pom.BurgerMenuComponent resetAppState
+INFO: Waiting for the reset app state button to appear...
+Apr 24, 2021 5:52:08 PM saucedemo.pom.BurgerMenuComponent resetAppState
+INFO: Clicking on the reset app state link...
+  And I reset the app state                                         # steps.SauceDemoStepDefs.i_reset_the_app_state()
+
+Scenario: Add the specific product ΓÇÿSauce Labs OnesieΓÇÖ to the shopping cart # src/test/resources/SauceDemo.feature:33
+Apr 24, 2021 5:52:08 PM saucedemo.pom.LoginPage goTo
+INFO: Navigating to https://www.saucedemo.com/
+Apr 24, 2021 5:52:08 PM saucedemo.pom.LoginPage waitUntilPageIsLoaded
+INFO: LoginPage finished loading
+  Given I am on the SauceDemo login page                                    # steps.SauceDemoStepDefs.i_am_on_the_saucedemo_login_page()
+Apr 24, 2021 5:52:08 PM saucedemo.pom.LoginPage login
+INFO: Entering credentials:  [User=standard_user, Password=*****]
+Apr 24, 2021 5:52:09 PM saucedemo.pom.LoginPage login
+INFO: Submitting credentials...
+  Given I authenticate using valid credentials                              # steps.SauceDemoStepDefs.i_authenticate_using_valid_credentials()
+Apr 24, 2021 5:52:09 PM saucedemo.pom.InventoryPage waitUntilPageIsLoaded
+INFO: Waiting for InventoryPage to load...
+Apr 24, 2021 5:52:09 PM saucedemo.pom.InventoryPage waitUntilPageIsLoaded
+INFO: InventoryPage finished loading.
+  Then I can see the inventory page                                         # steps.SauceDemoStepDefs.i_can_see_the_inventory_page()
+Apr 24, 2021 5:52:09 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Searching product Sauce Labs Onesie on the inventory list...
+Apr 24, 2021 5:52:09 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Found product Sauce Labs Onesie on inventory list. Attempting to add it to cart.
+Apr 24, 2021 5:52:09 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Product Sauce Labs Onesie was added to the cart.
+  Given I add product "Sauce Labs Onesie" to the shopping cart              # steps.SauceDemoStepDefs.i_add_product_to_the_shopping_cart(java.lang.String)
+Apr 24, 2021 5:52:09 PM saucedemo.pom.ShoppingCartComponent goToShoppingCart
+INFO: Clicking on the shopping cart button...
+Apr 24, 2021 5:52:09 PM saucedemo.pom.ShoppingCartPage waitUntilPageIsLoaded
+INFO: Waiting for ShoppingCartPage to load...
+Apr 24, 2021 5:52:09 PM saucedemo.pom.ShoppingCartPage waitUntilPageIsLoaded
+INFO: ShoppingCartPage finished loading.
+  And I navigate to the shopping cart page                                  # steps.SauceDemoStepDefs.i_navigate_to_the_shopping_cart_page()
+Apr 24, 2021 5:52:09 PM saucedemo.pom.ShoppingCartPage isProductOnCart
+INFO: Products in cart: [{name=Sauce Labs Onesie, description=Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel., price=7.990000}]
+  Then the "Sauce Labs Onesie" product should be on the shopping cart       # steps.SauceDemoStepDefs.the_product_should_be_on_the_shopping_cart(java.lang.String)
+Apr 24, 2021 5:52:09 PM saucedemo.pom.BurgerMenuComponent resetAppState
+INFO: Clicking on the burger menu...
+Apr 24, 2021 5:52:09 PM saucedemo.pom.BurgerMenuComponent resetAppState
+INFO: Waiting for the reset app state button to appear...
+Apr 24, 2021 5:52:10 PM saucedemo.pom.BurgerMenuComponent resetAppState
+INFO: Clicking on the reset app state link...
+  And I reset the app state                                                 # steps.SauceDemoStepDefs.i_reset_the_app_state()
+
+Scenario: Complete a purchase                                                                      # src/test/resources/SauceDemo.feature:41
+Apr 24, 2021 5:52:10 PM saucedemo.pom.LoginPage goTo
+INFO: Navigating to https://www.saucedemo.com/
+Apr 24, 2021 5:52:10 PM saucedemo.pom.LoginPage waitUntilPageIsLoaded
+INFO: LoginPage finished loading
+  Given I am on the SauceDemo login page                                                           # steps.SauceDemoStepDefs.i_am_on_the_saucedemo_login_page()
+Apr 24, 2021 5:52:10 PM saucedemo.pom.LoginPage login
+INFO: Entering credentials:  [User=standard_user, Password=*****]
+Apr 24, 2021 5:52:10 PM saucedemo.pom.LoginPage login
+INFO: Submitting credentials...
+  Given I authenticate using valid credentials                                                     # steps.SauceDemoStepDefs.i_authenticate_using_valid_credentials()
+Apr 24, 2021 5:52:10 PM saucedemo.pom.InventoryPage waitUntilPageIsLoaded
+INFO: Waiting for InventoryPage to load...
+Apr 24, 2021 5:52:10 PM saucedemo.pom.InventoryPage waitUntilPageIsLoaded
+INFO: InventoryPage finished loading.
+  Then I can see the inventory page                                                                # steps.SauceDemoStepDefs.i_can_see_the_inventory_page()
+Apr 24, 2021 5:52:10 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Searching product Sauce Labs Onesie on the inventory list...
+Apr 24, 2021 5:52:10 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Found product Sauce Labs Onesie on inventory list. Attempting to add it to cart.
+Apr 24, 2021 5:52:10 PM saucedemo.pom.InventoryPage addProductToShoppingCart
+INFO: Product Sauce Labs Onesie was added to the cart.
+  Given I add product "Sauce Labs Onesie" to the shopping cart                                     # steps.SauceDemoStepDefs.i_add_product_to_the_shopping_cart(java.lang.String)
+Apr 24, 2021 5:52:11 PM saucedemo.pom.ShoppingCartComponent goToShoppingCart
+INFO: Clicking on the shopping cart button...
+Apr 24, 2021 5:52:11 PM saucedemo.pom.ShoppingCartPage waitUntilPageIsLoaded
+INFO: Waiting for ShoppingCartPage to load...
+Apr 24, 2021 5:52:11 PM saucedemo.pom.ShoppingCartPage waitUntilPageIsLoaded
+INFO: ShoppingCartPage finished loading.
+  And I navigate to the shopping cart page                                                         # steps.SauceDemoStepDefs.i_navigate_to_the_shopping_cart_page()
+Apr 24, 2021 5:52:11 PM saucedemo.pom.ShoppingCartPage isProductOnCart
+INFO: Products in cart: [{name=Sauce Labs Onesie, description=Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel., price=7.990000}]
+  Then the "Sauce Labs Onesie" product should be on the shopping cart                              # steps.SauceDemoStepDefs.the_product_should_be_on_the_shopping_cart(java.lang.String)
+Apr 24, 2021 5:52:11 PM saucedemo.pom.CheckoutDataFormPage waitUntilPageIsLoaded
+INFO: Waiting for CheckoutDataFormPage to load...
+Apr 24, 2021 5:52:11 PM saucedemo.pom.CheckoutDataFormPage waitUntilPageIsLoaded
+INFO: CheckoutDataFormPage finished loading.
+  Given I click on the checkout button                                                             # steps.SauceDemoStepDefs.i_click_on_the_checkout_button()
+  Then I enter first name "John", last name "Doe" and postal code "9001" on the checkout data form # steps.SauceDemoStepDefs.i_enter_first_name_last_name_and_postal_code_on_the_checkout_data_form(java.lang.String,java.lang.String,java.lang.String)
+Apr 24, 2021 5:52:11 PM saucedemo.pom.CheckoutOverviewPage waitUntilPageIsLoaded
+INFO: Waiting for CheckoutOverviewPage to load...
+Apr 24, 2021 5:52:11 PM saucedemo.pom.CheckoutOverviewPage waitUntilPageIsLoaded
+INFO: CheckoutOverviewPage finished loading.
+  Given I click continue                                                                           # steps.SauceDemoStepDefs.i_click_continue()
+  Then I should see a summary of my order                                                          # steps.SauceDemoStepDefs.i_should_see_a_summary_of_my_order()
+Apr 24, 2021 5:52:11 PM saucedemo.pom.CheckoutCompletePage waitUntilPageIsLoaded
+INFO: Waiting for CheckoutCompletePage to load...
+Apr 24, 2021 5:52:11 PM saucedemo.pom.CheckoutCompletePage waitUntilPageIsLoaded
+INFO: CheckoutCompletePage finished loading.
+  Given I click Finish                                                                             # steps.SauceDemoStepDefs.i_click_finish()
+  Then I should see the "Your order has been dispatched" message on the screen                     # steps.SauceDemoStepDefs.i_should_see_the_message(java.lang.String)
+?????????????????????????????????????????????????????????????????????????????????????
+? Share your Cucumber Report with your team at https://reports.cucumber.io          ?
+? Activate publishing with one of the following:                                    ?
+?                                                                                   ?
+? src/test/resources/cucumber.properties:          cucumber.publish.enabled=true    ?
+? src/test/resources/junit-platform.properties:    cucumber.publish.enabled=true    ?
+? Environment variable:                            CUCUMBER_PUBLISH_ENABLED=true    ?
+? JUnit:                                           @CucumberOptions(publish = true) ?
+?                                                                                   ?
+? More information at https://reports.cucumber.io/docs/cucumber-jvm                 ?
+?                                                                                   ?
+? Disable this message with one of the following:                                   ?
+?                                                                                   ?
+? src/test/resources/cucumber.properties:          cucumber.publish.quiet=true      ?
+? src/test/resources/junit-platform.properties:    cucumber.publish.quiet=true      ?
+?????????????????????????????????????????????????????????????????????????????????????
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.11 sec
+
+Results :
+
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  18.197 s
+[INFO] Finished at: 2021-04-24T17:52:12-05:00
+[INFO] ------------------------------------------------------------------------
